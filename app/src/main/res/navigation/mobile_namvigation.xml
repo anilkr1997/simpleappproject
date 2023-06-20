@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_namvigation">
+<fragment
+    android:id="@+id/nav_mapfragment"
+    tools:layout="@layout/fragment_map"
+    android:name="com.nic.simpleappproject.UI.Fragment.MapFragment">
+    <action
+        android:id="@+id/action_nav_mapfragment_to_nav_adddatafragment"
+        app:destination="@id/nav_adddatafragment" />
+    <action
+        android:id="@+id/action_nav_mapfragment_to_nav_lidtofatafragment"
+        app:destination="@id/nav_lidtofatafragment" />
+</fragment>
+<fragment
+    android:id="@+id/nav_adddatafragment"
+    tools:layout="@layout/fragment_add_data"
+    android:name="com.nic.simpleappproject.UI.Fragment.AddDataFragment"/>
+<fragment
+    android:id="@+id/nav_lidtofatafragment"
+    tools:layout="@layout/fragment_view_all_data"
+    android:name="com.nic.simpleappproject.UI.Fragment.ViewAllDataFragment"/>
+
+</navigation>
