@@ -320,7 +320,7 @@ public class MapFragment extends Fragment implements LocationListener,
             realDbdatabases = realm.where(RealDbdatabase.class).findAll();
             for (int i = 0; i <= realDbdatabases.size() - 1; i++) {
 // add marker
-                mGoogleMap.addMarker(new MarkerOptions().position(new LatLng(realDbdatabases.get(i).getLat(), realDbdatabases.get(i).getLon())).title(realDbdatabases.get(i).getTaskname()).icon(Uttile.BitmapFromVector(getContext().getApplicationContext(), R.drawable.baseline_location_city_24)));
+                mGoogleMap.addMarker(new MarkerOptions().position(new LatLng(realDbdatabases.get(i).getLat(), realDbdatabases.get(i).getLon())).icon(Uttile.BitmapFromVector(getContext().getApplicationContext(), R.drawable.baseline_location_city_24)));
 
             }
         }

@@ -9,10 +9,14 @@ public class RealDbdatabase extends RealmObject {
 
     @PrimaryKey
     int id=0;
-    String name;
+    String schoolname;
     String phonnumber;
-    String Taskname;
-    String TaskDescreption;
+    String schooltype;
+    String schcatgory;
+    String Address;
+    String state;
+    String distric;
+    String pin;
     double lat;
     double lon;
 
@@ -24,12 +28,12 @@ public class RealDbdatabase extends RealmObject {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getSchoolname() {
+        return schoolname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setSchoolname(String schoolname) {
+        this.schoolname = schoolname;
     }
 
     public String getPhonnumber() {
@@ -40,20 +44,52 @@ public class RealDbdatabase extends RealmObject {
         this.phonnumber = phonnumber;
     }
 
-    public String getTaskname() {
-        return Taskname;
+    public String getSchooltype() {
+        return schooltype;
     }
 
-    public void setTaskname(String taskname) {
-        Taskname = taskname;
+    public void setSchooltype(String schooltype) {
+        this.schooltype = schooltype;
     }
 
-    public String getTaskDescreption() {
-        return TaskDescreption;
+    public String getSchcatgory() {
+        return schcatgory;
     }
 
-    public void setTaskDescreption(String taskDescreption) {
-        TaskDescreption = taskDescreption;
+    public void setSchcatgory(String schcatgory) {
+        this.schcatgory = schcatgory;
+    }
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String address) {
+        Address = address;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getDistric() {
+        return distric;
+    }
+
+    public void setDistric(String distric) {
+        this.distric = distric;
+    }
+
+    public String getPin() {
+        return pin;
+    }
+
+    public void setPin(String pin) {
+        this.pin = pin;
     }
 
     public double getLat() {
