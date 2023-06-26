@@ -39,8 +39,8 @@ public class AddDataFragment extends Fragment {
     }
 
     private Realm realm;
-    private final Map<String, ArrayList> listMap = new HashMap<>();
-    private final ArrayList<String> uplist = new ArrayList<>();
+//    private final Map<String, ArrayList> listMap = new HashMap<>();
+//    private final ArrayList<String> uplist = new ArrayList<>();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -56,42 +56,42 @@ public class AddDataFragment extends Fragment {
         mViewModel = new ViewModelProvider(this).get(AddDataViewModel.class);
         realm = Realm.getDefaultInstance();
 
-        listMap.put("Andaman Nicobar", uplist);
-        listMap.put("Andhra Pradesh", uplist);
-        listMap.put("Arunachal Pradesh", uplist);
-        listMap.put("Assam", uplist);
-        listMap.put("Bihar", uplist);
-        listMap.put("Chandigarh", uplist);
-        listMap.put("Chhattisgarh", uplist);
-        listMap.put("Dadra and Nagar Haveli and Daman and Diu", uplist);
-        listMap.put("Delhi", uplist);
-        listMap.put("Goa", uplist);
-        listMap.put("Gujarat", uplist);
-        listMap.put("Haryana", uplist);
-        listMap.put("Himachal Pradesh", uplist);
-        listMap.put("Jammu Kashmir", uplist);
-        listMap.put("Jharkhand", uplist);
-        listMap.put( "Karnataka", uplist);
-        listMap.put("Kerala", uplist);
-        listMap.put("Ladakh", uplist);
-        listMap.put("Lakshadweep", uplist);
-        listMap.put("Madhya Pradesh", uplist);
-        listMap.put("Maharashtra", uplist);
-        listMap.put("Manipur", uplist);
-        listMap.put("Meghalaya", uplist);
-        listMap.put("Mizoram", uplist);
-        listMap.put("Nagaland", uplist);
-        listMap.put("Odisha", uplist);
-        listMap.put("Pondicherry", uplist);
-        listMap.put("Punjab", uplist);
-        listMap.put("Rajasthan", uplist);
-        listMap.put("Sikkim", uplist);
-        listMap.put("Tamil Nadu", uplist);
-        listMap.put("Telangana", uplist);
-        listMap.put("Tripura", uplist);
-        listMap.put("Uttar Pradesh", uplist);
-        listMap.put("Uttarakhand", uplist);
-        listMap.put("West Bengal", uplist);
+//        listMap.put("Andaman Nicobar", uplist);
+//        listMap.put("Andhra Pradesh", uplist);
+//        listMap.put("Arunachal Pradesh", uplist);
+//        listMap.put("Assam", uplist);
+//        listMap.put("Bihar", uplist);
+//        listMap.put("Chandigarh", uplist);
+//        listMap.put("Chhattisgarh", uplist);
+//        listMap.put("Dadra and Nagar Haveli and Daman and Diu", uplist);
+//        listMap.put("Delhi", uplist);
+//        listMap.put("Goa", uplist);
+//        listMap.put("Gujarat", uplist);
+//        listMap.put("Haryana", uplist);
+//        listMap.put("Himachal Pradesh", uplist);
+//        listMap.put("Jammu Kashmir", uplist);
+//        listMap.put("Jharkhand", uplist);
+//        listMap.put( "Karnataka", uplist);
+//        listMap.put("Kerala", uplist);
+//        listMap.put("Ladakh", uplist);
+//        listMap.put("Lakshadweep", uplist);
+//        listMap.put("Madhya Pradesh", uplist);
+//        listMap.put("Maharashtra", uplist);
+//        listMap.put("Manipur", uplist);
+//        listMap.put("Meghalaya", uplist);
+//        listMap.put("Mizoram", uplist);
+//        listMap.put("Nagaland", uplist);
+//        listMap.put("Odisha", uplist);
+//        listMap.put("Pondicherry", uplist);
+//        listMap.put("Punjab", uplist);
+//        listMap.put("Rajasthan", uplist);
+//        listMap.put("Sikkim", uplist);
+//        listMap.put("Tamil Nadu", uplist);
+//        listMap.put("Telangana", uplist);
+//        listMap.put("Tripura", uplist);
+//        listMap.put("Uttar Pradesh", uplist);
+//        listMap.put("Uttarakhand", uplist);
+//        listMap.put("West Bengal", uplist);
 
 
 
@@ -126,10 +126,13 @@ public class AddDataFragment extends Fragment {
                             RealDbdatabase realDbdatabase = new RealDbdatabase();
 
                             realDbdatabase.setId(ids);
-//                            realDbdatabase.setName(addDataBinding.etName.getText().toString());
-//                            realDbdatabase.setPhonnumber(addDataBinding.etPhonenumber.getText().toString());
-//                            realDbdatabase.setTaskname(addDataBinding.etTitle.getText().toString());
-//                            realDbdatabase.setTaskDescreption(addDataBinding.etDescreptiuon.getText().toString());
+                            realDbdatabase.setSchoolname(addDataBinding.etName.getText().toString());
+                            realDbdatabase.setPhonnumber(addDataBinding.etPhonenumber.getText().toString());
+                            realDbdatabase.setSchooltype(addDataBinding.etSchooltype.getText().toString());
+                            realDbdatabase.setSchcatgory(addDataBinding.etSchoolcategary.getText().toString());
+                            realDbdatabase.setState(addDataBinding.state.getText().toString());
+                            realDbdatabase.setDistric(addDataBinding.Distric.getText().toString());
+                            realDbdatabase.setAddress(addDataBinding.etDescreptiuon.getText().toString());
                             realDbdatabase.setLat(latLng.latitude);
                             realDbdatabase.setLon(latLng.longitude);
 
@@ -144,7 +147,10 @@ public class AddDataFragment extends Fragment {
 
                             addDataBinding.etName.getText().clear();
                             addDataBinding.etPhonenumber.getText().clear();
-
+                            addDataBinding.etSchoolcategary.getText().clear();
+                            addDataBinding.etSchooltype.getText().clear();
+                            addDataBinding.state.getText().clear();
+                            addDataBinding.Distric.getText().clear();
                             addDataBinding.etDescreptiuon.getText().clear();
 
                             Uttile.Showmassage(requireContext(), addDataBinding.btnAdd, "Data Inserted Successfully");
@@ -171,8 +177,20 @@ public class AddDataFragment extends Fragment {
         } else if (TextUtils.isEmpty(addDataBinding.etPhonenumber.toString())) {
             Uttile.Showmassage(requireActivity().getBaseContext(), addDataBinding.etPhonenumber, "Please Enter Phone Number");
             return false;
+        }else if (TextUtils.isEmpty(addDataBinding.etSchoolcategary.toString())) {
+            Uttile.Showmassage(requireActivity().getBaseContext(), addDataBinding.etPhonenumber, "Please Enter School Category");
+            return false;
+        }else if (TextUtils.isEmpty(addDataBinding.etSchooltype.toString())) {
+            Uttile.Showmassage(requireActivity().getBaseContext(), addDataBinding.etPhonenumber, "Please Enter School Type");
+            return false;
+        }else if (TextUtils.isEmpty(addDataBinding.state.toString())) {
+            Uttile.Showmassage(requireActivity().getBaseContext(), addDataBinding.etPhonenumber, "Please Enter State");
+            return false;
+        }else if (TextUtils.isEmpty(addDataBinding.Distric.toString())) {
+            Uttile.Showmassage(requireActivity().getBaseContext(), addDataBinding.etPhonenumber, "Please Enter District");
+            return false;
         } else if (TextUtils.isEmpty(addDataBinding.etDescreptiuon.toString())) {
-            Uttile.Showmassage(requireActivity().getBaseContext(), addDataBinding.etDescreptiuon, "Please Enter Description of Task");
+            Uttile.Showmassage(requireActivity().getBaseContext(), addDataBinding.etDescreptiuon, "Please Enter Full Address");
             return false;
         }
         return true;

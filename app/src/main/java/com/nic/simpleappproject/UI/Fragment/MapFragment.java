@@ -43,10 +43,8 @@ import java.util.Objects;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
-public class MapFragment extends Fragment implements LocationListener,
-
-        GoogleMap.OnInfoWindowClickListener, GoogleMap.OnMarkerClickListener, View.OnClickListener, GoogleMap.OnMapClickListener,
-        GoogleMap.OnPolylineClickListener, ResultCallback<LocationSettingsResult>, OnMapReadyCallback, GoogleMap.OnMapLoadedCallback {
+public class MapFragment extends Fragment implements GoogleMap.OnMarkerClickListener, View.OnClickListener, GoogleMap.OnMapClickListener,
+        OnMapReadyCallback, GoogleMap.OnMapLoadedCallback {
 
 // set map zoom lave
     private static final Float DEFAULT_ZOOM = 15f;
@@ -194,21 +192,10 @@ public class MapFragment extends Fragment implements LocationListener,
 
     }
 
-    @Override
-    public void onResult(@NonNull LocationSettingsResult locationSettingsResult) {
-
-    }
 
 
-    @Override
-    public void onLocationChanged(@NonNull Location location) {
 
-    }
 
-    @Override
-    public void onInfoWindowClick(@NonNull Marker marker) {
-
-    }
 
     @Override
     public void onMapClick(@NonNull LatLng latLng) {
@@ -224,10 +211,7 @@ public class MapFragment extends Fragment implements LocationListener,
         return false;
     }
 
-    @Override
-    public void onPolylineClick(@NonNull Polyline polyline) {
 
-    }
 //
     @SuppressLint("MissingPermission")
     @Override
@@ -261,7 +245,7 @@ public class MapFragment extends Fragment implements LocationListener,
                 if (task.isSuccessful()) {
                     lastKnownLocation = task.getResult();
                     if (lastKnownLocation != null) {
-// set zoom for current lat-log or location
+                        // set zoom for current lat-log or location
                         mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude()), DEFAULT_ZOOM));
                       // get current lat
                         latloglocation = new LatLng(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude());
@@ -287,7 +271,7 @@ public class MapFragment extends Fragment implements LocationListener,
     @Override
     public void onMapLoaded() {
 
-        mGoogleMap.setOnMapClickListener(this::onMapClick);
+        mGoogleMap.setOnMapClickListener(this);
 
         mGoogleMap.setOnCameraMoveListener(new GoogleMap.OnCameraMoveListener() {
             @Override
@@ -319,9 +303,8 @@ public class MapFragment extends Fragment implements LocationListener,
         if (realm.where(RealDbdatabase.class).findAll().size() > 0) {
             realDbdatabases = realm.where(RealDbdatabase.class).findAll();
             for (int i = 0; i <= realDbdatabases.size() - 1; i++) {
-// add marker
-                mGoogleMap.addMarker(new MarkerOptions().position(new LatLng(realDbdatabases.get(i).getLat(), realDbdatabases.get(i).getLon())).icon(Uttile.BitmapFromVector(getContext().getApplicationContext(), R.drawable.baseline_location_city_24)));
-
+                  // add marker
+                mGoogleMap.addMarker(new MarkerOptions().position(new LatLng(realDbdatabases.get(i).getLat(), realDbdatabases.get(i).getLon())).title(realDbdatabases.get(i).getSchoolname()).icon(Uttile.BitmapFromVector(getContext().getApplicationContext(), R.drawable.baseline_location_city_24)));
             }
         }
 

@@ -40,10 +40,10 @@ public class TaskAdopterList extends RecyclerView.Adapter<TaskAdopterList.MyView
 
     @Override
     public void onBindViewHolder(TaskAdopterList.MyViewHolder holder, int position) {
-        holder.binding.tvName.setText(realDbdatabases.get(position).getName().toString());
+        holder.binding.tvName.setText(realDbdatabases.get(position).getSchoolname().toString());
         holder.binding.tvPnumber.setText(realDbdatabases.get(position).getPhonnumber());
-        holder.binding.tvTitle.setText(realDbdatabases.get(position).getTaskname().toString());
-        holder.binding.tvDescrepthin.setText(realDbdatabases.get(position).getTaskDescreption().toString());
+        holder.binding.tvTitle.setText(realDbdatabases.get(position).getSchcatgory().toString());
+        holder.binding.tvDescrepthin.setText(realDbdatabases.get(position).getSchooltype().toString());
         holder.binding.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

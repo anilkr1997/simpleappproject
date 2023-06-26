@@ -16,7 +16,6 @@ public class RealDbdatabase extends RealmObject {
     String Address;
     String state;
     String distric;
-    String pin;
     double lat;
     double lon;
 
@@ -82,14 +81,6 @@ public class RealDbdatabase extends RealmObject {
 
     public void setDistric(String distric) {
         this.distric = distric;
-    }
-
-    public String getPin() {
-        return pin;
-    }
-
-    public void setPin(String pin) {
-        this.pin = pin;
     }
 
     public double getLat() {
